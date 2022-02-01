@@ -26,8 +26,6 @@ public class Calculator {
     }
 
     public int calculate() {
-        char operator;
-        int temp;
 
         //invalid size return the error code.
         if ((operation.size() % 2) == 0) {
@@ -45,14 +43,14 @@ public class Calculator {
                     char firstOperator = it.next();
                     char secondNumber = it.next();
                     if (validNumber(firstElement) && validNumber(secondNumber) && validOperator(firstOperator)) {
-                        //extract the first element as the result.
                         result = calculation(firstOperator, Character.getNumericValue(firstElement), Character.getNumericValue(secondNumber));
                     } else {
                         throw new Exception("error");
                     }
                 } else {
+                    int temp;
                     //remove 2 elements from the list
-                    operator = it.next();
+                    char operator = it.next();
 
                     char num = it.next();
 
