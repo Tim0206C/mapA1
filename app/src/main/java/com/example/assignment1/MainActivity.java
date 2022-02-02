@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Handle the equal sign (=)
     public void equalOnClicked(View view) {
-        // calculator.push((String) result.getText());
+
         String temp = (String) result.getText();
         //convert the text into proper format
         temp = temp.replace("Pow","^");
@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
-        String tempStr;
+       // int id = view.getId();
+        String tempStr = ((Button)view).getText().toString();
         if (calculator.getState()) {
             result.setText("");
             calculator.clear();
@@ -142,66 +142,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //into this calculation
         calculator.setStateToFalse();
-        if (id == R.id.one) {
-            tempStr = result.getText() + "1";
-            result.setText(tempStr);
-        } else if (id == R.id.two) {
-            tempStr = result.getText() + "2";
-            result.setText(tempStr);
-        } else if (id == R.id.three) {
-            tempStr = result.getText() + "3";
-            result.setText(tempStr);
-        } else if (id == R.id.four) {
-            tempStr = result.getText() + "4";
-            result.setText(tempStr);
-        } else if (id == R.id.five) {
-            tempStr = result.getText() + "5";
-            result.setText(tempStr);
-        } else if (id == R.id.six) {
-            tempStr = result.getText() + "6";
-            result.setText(tempStr);
-        } else if (id == R.id.seven) {
-            tempStr = result.getText() + "7";
-            result.setText(tempStr);
-        } else if (id == R.id.eight) {
-            tempStr = result.getText() + "8";
-            result.setText(tempStr);
-        } else if (id == R.id.nine) {
-            tempStr = result.getText() + "9";
-            result.setText(tempStr);
-        } else if (id == R.id.zero) {
-            tempStr = result.getText() + "0";
-            result.setText(tempStr);
-        } else if (id == R.id.add) {
-            tempStr = result.getText() + "+";
-            result.setText(tempStr);
-        } else if (id == R.id.subtract) {
-            tempStr = result.getText() + "-";
-            result.setText(tempStr);
-        } else if (id == R.id.time) {
-            tempStr = result.getText() + "*";
-            result.setText(tempStr);
-        } else if (id == R.id.divide) {
-            tempStr = result.getText() + "/";
-            result.setText(tempStr);
-        } else if (id == R.id.max) {
-            tempStr = result.getText() + "Max";
-            result.setText(tempStr);
-        } else if (id == R.id.min) {
-            tempStr = result.getText() + "Min";
-            result.setText(tempStr);
-        } else if (id == R.id.pow) {
-            tempStr = result.getText() + "Pow";
-            result.setText(tempStr);
-        } else if (id == R.id.modulo) {
-            tempStr = result.getText() + "%";
-            result.setText(tempStr);
-        } else if (id == R.id.clear) {
+        if(tempStr.equals("C")){
             result.setText("");
             calculator.clear();
             //ready for calculation
             calculator.setStateToTrue();
+        }else{
+            String tem = result.getText().toString() + tempStr;
+            tem = tem.replace("POW","Pow");
+            tem = tem.replace("MAX","Max");
+            tem = tem.replace("MIN","Min");
+            result.setText(tem);
         }
+
+
 
     }
 
